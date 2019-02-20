@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>To-Do App</title>
+  </head>
+  <body>
+    <h1>{{Name}}'s To Do List:</h1>
+    <table style="width:100%">
+      <tr>
+        <td>Task</td>
+        <td>Status</td>
+        <td>Other Actions:</td>
+      </tr>
+      {% for data in tasks %}
+      <tr>
+          <td>{{data['content']}}</td>
+          {% if data['completed'] %}
+            <td>COMPLETED</td>
+          {% else %}
+            <td>NEED TO DO</td>
+          {% endif %}
+          <td>
+            {% if data['completed']%}
+              <a href="/update_notdone/{{data['id']}}">Mark as Incomplete</a>
+            {% else %}
+              <a href="/update_done/{{data['id']}}">Mark as Complete</a>
+            {% endif %}
+            <br>
+            <a href="/delete_task/{{data['id']}}">Delete</a>
+          </td>
+      </tr>
+			{% endfor %}
+    </table>
+    <form method = "POST">
+      New Task to be Completed:<br>
+      <input type="text" name="new_task" placeholder="Enter new task here"><br>
+      <input type = "submit" name="submit" value = "Submit" />
+    </form>
+    <button><a href="/logout">Log Out</a></button>
+  </body>
+</html>

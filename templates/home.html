@@ -1,10 +1,16 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <title>To-Do App</title>
   </head>
   <body>
-    <h1> HELLO WORLD </h1>
+    <h2>{{text|safe}}</h2>
+    <form method = "POST">
+      Sign In or Register:<br>
+      <input type="text" name="username" placeholder="username"><br>
+      <input type = "submit" name= "submit" value = "Login" />
+      <input type = "submit" name="submit" value= "Register" />
+      <br>
+    </form>
   </body>
 </html>

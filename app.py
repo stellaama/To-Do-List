@@ -8,25 +8,23 @@ app.secret_key= 'webdevissoC00l'
 def home():
 	if 'username' in session:
 		return redirect('/loggedIn')
-	else:
-		print("not in session")
 
 	if request.method == 'POST':
 		submit_button = request.form['submit']
 		username = request.form['username']
 		if (submit_button == 'Register'):
 			r = requests.post('https://hunter-todo-api.herokuapp.com/user', json={'username': username})
-			print(r.json())
-			print(r.url)
-			print(r)
+			#print(r.json())
+			#print(r.url)
+			#print(r)
 			if r.status_code == 409:
 				return render_template('home.html', text = "<p>That user already exists.<p>")
 		new_login = requests.post('https://hunter-todo-api.herokuapp.com/auth', json={'username': username})
-		print (new_login.json())
-		print(new_login.status_code)
+		#print (new_login.json())
+		#print(new_login.status_code)
 		if new_login.status_code == 400:
 			return render_template('home.html', text = "<p>That user doesn't exist.<p>")
-			print(new_login.status_code)
+			#print(new_login.status_code)
 		else:
 			#storing the token
 			session['username'] = new_login.json()['token']
@@ -53,7 +51,7 @@ def loggedIn():
 def update_done(id):
 	if 'username' in session:
 		r = requests.put('https://hunter-todo-api.herokuapp.com/todo-item/'+id, cookies={'sillyauth': session.get('username', None)}, json={"completed": True})
-		print(r.json())
+		#print(r.json())
 		return redirect('/loggedIn')
 	else:
 		return redirect('/')
@@ -62,7 +60,7 @@ def update_done(id):
 def update_notdone(id):
 	if 'username' in session:
 		r = requests.put('https://hunter-todo-api.herokuapp.com/todo-item/'+id, cookies={'sillyauth': session.get('username', None)}, json={"completed": False})
-		print(r.json())
+		#print(r.json())
 		return redirect('/loggedIn')
 	else:
 		return redirect('/')
@@ -71,7 +69,7 @@ def update_notdone(id):
 def delete_task(id):
 	if 'username' in session:
 		r = requests.delete('https://hunter-todo-api.herokuapp.com/todo-item/'+id, cookies={'sillyauth': session.get('username', None)})
-		print(r.text)
+		#print(r.text)
 		return redirect('/loggedIn')
 	else:
 		return redirect('/')

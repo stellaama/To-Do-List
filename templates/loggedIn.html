@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>To-Do App</title>
   </head>
   <body>
     <h1>{{Name}}'s To Do List:</h1>
-    <table style="width:100%">
+    <table class="table">
+      <thead class="thead-dark">
       <tr>
-        <td>Task</td>
-        <td>Status</td>
-        <td>Other Actions:</td>
+        <th scope="col">Task</th>
+        <th scope="col">Status</th>
+        <th scope="col">Other Actions:</th>
       </tr>
+      </thead>
+      <tbody>
       {% for data in tasks %}
       <tr>
           <td>{{data['content']}}</td>
@@ -30,12 +34,18 @@
           </td>
       </tr>
 			{% endfor %}
+      </tbody>
     </table>
     <form method = "POST">
+      <div class="form-group">
       New Task to be Completed:<br>
       <input type="text" name="new_task" placeholder="Enter new task here"><br>
-      <input type = "submit" name="submit" value = "Submit" />
+      </div>
+      <div class="hidden-xs hidden-md hidden-lg">
+      <input class="btn btn-primary btn-sm" type ="submit" name="submit" value = "Submit" />
+      </div>
     </form>
-    <button><a href="/logout">Log Out</a></button>
+    <br>
+    <a class="btn btn-secondary btn-sm" href="/logout">Log Out</a>
   </body>
 </html>

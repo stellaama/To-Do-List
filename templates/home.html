@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>To-Do App</title>
   </head>
   <body>
+    <h2>To-Do List App</h2>
     <h2>{{text|safe}}</h2>
     <form method = "POST">
-      Sign In or Register:<br>
-      <input type="text" name="username" placeholder="username"><br>
-      <input type = "submit" name= "submit" value = "Login" />
-      <input type = "submit" name="submit" value= "Register" />
-      <br>
+      <div class="form-group">
+      Login or Register:<br>
+      <input type="text" name="username" placeholder="username">
+      </div>
+      <div class="hidden-xs hidden-md hidden-lg">
+      <input class="btn btn-primary" type = "submit" name= "submit" value = "Login" />
+      <input class="btn btn-primary" type = "submit" name="submit" value= "Register" />
+      </div>
     </form>
   </body>
 </html>

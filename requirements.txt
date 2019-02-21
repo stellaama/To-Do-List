@@ -5,7 +5,6 @@ certifi==2017.7.27.1
 cffi==1.10.0
 chardet==3.0.4
 Click==7.0
-conda==4.3.30
 coverage==4.4.2
 cryptography==2.0.3
 decorator==4.1.2

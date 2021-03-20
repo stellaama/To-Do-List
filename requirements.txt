@@ -21,7 +21,7 @@ flipflop==1.0
 guess-language==0.2
 idna==2.6
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.1.0
 pbr==3.1.1
 pycparser==2.18
